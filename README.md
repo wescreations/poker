@@ -1,24 +1,36 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Kellen's Poker Hand Evaluator
+♣ ♦ ♥ ♠ ♣ ♦ ♥ ♠ ♣ ♦ ♥ ♠ ♣ ♦ ♥ ♠
 
-Things you may want to cover:
 
-* Ruby version
+Specs
+♣ ♦ ♥ ♠ ♣ ♦ ♥ ♠ ♣ ♦ ♥ ♠ ♣ ♦ ♥ ♠
+* Ruby: 3.0
 
-* System dependencies
+* Rails: 6.1.4.1
 
-* Configuration
+* Database: none
 
-* Database creation
+* Test Suite: Minitest (built in, no install required)
 
-* Database initialization
 
-* How to run the test suite
+Deployment instructions
+♣ ♦ ♥ ♠ ♣ ♦ ♥ ♠ ♣ ♦ ♥ ♠ ♣ ♦ ♥ ♠
+* download / instal app:
 
-* Services (job queues, cache servers, search engines, etc.)
+  * go to: https://github.com/wescreations/poker
 
-* Deployment instructions
+  * clone repo with method of choice
 
-* ...
+* Gems: Minitest dependency: 'rexml'
+
+  * gem 'rexml'
+
+  * bundle install
+
+* cd /poker
+
+* run: 'rails s'
+
+* browse app @ http://localhost:3000/

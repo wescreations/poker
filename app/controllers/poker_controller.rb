@@ -7,7 +7,6 @@ class PokerController < ApplicationController
         if valid_cards?(poker_hand)
 
           poker_hand_parsed = poker_hand
-
           poker_hand_parsed[0] = [poker_hand[0].chop, poker_hand[0][-1, 1]]
           poker_hand_parsed[1] = [poker_hand[1].chop, poker_hand[1][-1, 1]]
           poker_hand_parsed[2] = [poker_hand[2].chop, poker_hand[2][-1, 1]]
@@ -37,7 +36,7 @@ class PokerController < ApplicationController
                         else
                           if one_pair(poker_hand_numbers_only)
                           else
-                            flash[:notice] = "Hand: None / High Card. Rank: 10th"
+                            flash[:notice] = "Cards: #{params[:poker_hand].upcase}. Hand: None / High Card. Rank: 10th"
                             redirect_to poker_main_path
                           end
                         end
@@ -49,15 +48,15 @@ class PokerController < ApplicationController
             end
           end
         else
-          flash[:alert] = "Hmm... some cards appear to be invalid."
+          flash[:alert] = "Cards: #{params[:poker_hand].upcase}. Hmm... some cards appear to be invalid."
           redirect_to poker_main_path
         end
       else
-        flash[:alert] = "Hmm... some cards appear to be duplicates."
+        flash[:alert] = "Cards: #{params[:poker_hand].upcase}. Hmm... some cards appear to be duplicates."
         redirect_to poker_main_path
       end
     else
-      flash[:alert] = "Invalid Format. Remember each card should be two digits separated by one space character. Example: 2H 3H 7D 10C AD."
+      flash[:alert] = "Cards: #{params[:poker_hand].upcase}. Invalid Format. Remember each card should be two digits separated by one space character. Example: 2H 3H 7D 10C AD."
       redirect_to poker_main_path
     end
   end
@@ -79,63 +78,63 @@ class PokerController < ApplicationController
 
   def one_pair(x)
     if x.uniq.length == 4
-      flash[:notice] = "Hand: Pair. Rank: 9th"
+      flash[:notice] = "Cards: #{params[:poker_hand].upcase}. Hand: Pair. Rank: 9th"
       redirect_to poker_main_path
     end
   end
 
   def two_pair(x, y)
     if x.uniq.length == 3 && y.include?(2)
-      flash[:notice] = "Hand: Two Pair. Rank: 8th"
+      flash[:notice] = "Cards: #{params[:poker_hand].upcase}. Hand: Two Pair. Rank: 8th"
       redirect_to poker_main_path
     end
   end
 
   def three_of_a_kind(x, y)
     if x.uniq.length == 3 && y.include?(3)
-      flash[:notice] = "Hand: Three of a Kind. Rank: 7th"
+      flash[:notice] = "Cards: #{params[:poker_hand].upcase}. Hand: Three of a Kind. Rank: 7th"
       redirect_to poker_main_path
     end
   end
 
   def straight(x)
     if x[4] - x[3]  == 1 && x[3] - x[2]  == 1 && x[2] - x[1]  == 1 && x[1] - x[0] == 1
-      flash[:notice] = "Hand: Straight. Rank: 6th"
+      flash[:notice] = "Cards: #{params[:poker_hand].upcase}. Hand: Straight. Rank: 6th"
       redirect_to poker_main_path
     end
   end
 
   def flush(x)
     if x.uniq.length == 1
-      flash[:notice] = "Hand: Flush. Rank: 5th"
+      flash[:notice] = "Cards: #{params[:poker_hand].upcase}. Hand: Flush. Rank: 5th"
       redirect_to poker_main_path
     end
   end
 
   def full_house(x, y)
     if x.uniq.length == 2 && y.include?(3)
-      flash[:notice] = "Hand: Full House. Rank: 4th"
+      flash[:notice] = "Cards: #{params[:poker_hand].upcase}. Hand: Full House. Rank: 4th"
       redirect_to poker_main_path
     end
   end
 
   def four_of_a_kind(x, y)
     if x.uniq.length == 2 && y.include?(4)
-      flash[:notice] = "Hand: Four of a Kind. Rank: 3rd"
+      flash[:notice] = "Cards: #{params[:poker_hand].upcase}. Hand: Four of a Kind. Rank: 3rd"
       redirect_to poker_main_path
     end
   end
 
   def straight_flush(x, y)
     if x.uniq.length == 1 && y[4] - y[3] == 1 && y[3] - y[2]  == 1 && y[2] - y[1] == 1 && y[1] - y[0] == 1
-      flash[:notice] = "Hand: Straight Flush. Rank: 2nd"
+      flash[:notice] = "Cards: #{params[:poker_hand].upcase}. Hand: Straight Flush. Rank: 2nd"
       redirect_to poker_main_path
     end
   end
 
   def royal_flush(x)
     if x == [["10","C"],["A","C"],["J","C"],["K","C"],["Q","C"]] || x == [["10","D"],["A","D"],["J","D"],["K","D"],["Q","D"]] || x == [["10","H"],["A","H"],["J","H"],["K","H"],["Q","H"]] || x == [["10","S"],["A","S"],["J","S"],["K","S"],["Q","S"]]
-      flash[:notice] = "Hand: Royal Flush. Rank: 1st"
+      flash[:notice] = "Cards: #{params[:poker_hand].upcase}. Hand: Royal Flush. Rank: 1st"
       redirect_to poker_main_path
     end
   end
