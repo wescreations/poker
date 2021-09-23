@@ -1,0 +1,6 @@
+<%= form_with url: "/poker/submit_hand",  method: :post do |f| %>
+<h4>Enter your poker hand below. Each card should be 2-3 characters, each separated by one space character.</h4>
+<p>(Example: 2H 3H 7D 10C AD)</p>
+<%= f.text_field :poker_hand, { placeholder: "Enter hand..." }%>
+  <%= f.submit "EVALUATE POKER HAND" %>
+<% end %>
