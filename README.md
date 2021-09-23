@@ -1,11 +1,10 @@
 # README
 
 Kellen's Poker Hand Evaluator
-♣ ♦ ♥ ♠ ♣ ♦ ♥ ♠ ♣ ♦ ♥ ♠ ♣ ♦ ♥ ♠
-
+♣ ♦ ♥ ♠
 
 Specs
-♣ ♦ ♥ ♠ ♣ ♦ ♥ ♠ ♣ ♦ ♥ ♠ ♣ ♦ ♥ ♠
+♣ ♦ ♥ ♠
 * Ruby: 3.0
 
 * Rails: 6.1.4.1
@@ -16,7 +15,7 @@ Specs
 
 
 Deployment instructions
-♣ ♦ ♥ ♠ ♣ ♦ ♥ ♠ ♣ ♦ ♥ ♠ ♣ ♦ ♥ ♠
+♣ ♦ ♥ ♠
 * download / instal app:
 
   * go to: https://github.com/wescreations/poker
