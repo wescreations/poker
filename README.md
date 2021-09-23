@@ -26,7 +26,7 @@ Deployment instructions
 
   * gem 'rexml'
 
-  * bundle install
+  * run 'bundle install'
 
 * cd /poker
 
